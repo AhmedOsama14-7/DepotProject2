@@ -1,0 +1,42 @@
+.accountBanner {
+  width: 100vw;
+  height: 40vh;
+  position: relative;
+  left: -4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  p {
+    position: absolute;
+    font-size: 3rem;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width:1024px) {
+    .accountBanner{
+        left: -4rem;
+        height: 30vh;
+    }
+}
+@media (max-width:600px) {
+    .accountBanner{
+        left: -3rem;
+        height: 25vh;
+    }
+}
+@media (max-width:460px) {
+    .accountBanner{
+        left: -2rem;
+        height: 20vh;
+    }
+}
+
