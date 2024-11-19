@@ -456,7 +456,29 @@
     }
   }
 }
+.relatedProducts{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2rem;
+  margin-top: 4rem;
 
+  h6{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $grey-text-colour;
+    text-transform: uppercase;
+  }
+  .productsContainer{
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    flex-wrap: wrap;
+    .productCard{
+      width: calc((100% - 6rem) / 100%);
+    }
+  }
+}
 @media (max-width: 850px) {
   .singleProductContent {
     width: 100vw;

@@ -4,6 +4,7 @@ import { FaHeart } from "react-icons/fa";
 import QuickLook from '../quickLook/QuickLook';
 import { NavLink } from 'react-router-dom';
 import CategoryContext from '../../context/CategoryContext';
+import { FilterPrice } from '../../scripts/filter';
 export default function ProductCard({name , sale , price , salePrec , img , onclick , rating , slug , category ,isNew , product }) {
     const handleInnerButtonClick = (e) => {
         e.stopPropagation(); 
@@ -31,6 +32,7 @@ export default function ProductCard({name , sale , price , salePrec , img , oncl
 
         useEffect(()=>{
             handleCategory()
+        
         },[handleCategoryChange])
     
   return (

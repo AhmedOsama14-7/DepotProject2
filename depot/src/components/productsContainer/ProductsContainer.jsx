@@ -13,24 +13,24 @@ import {
   sortByPriceAsc,
   sortByPriceDesc,
   sortByRating,
+  FilterPrice,
 } from "../../scripts/filter";
 
 export default function ProductsContainer({ routes }) {
   const [active, SetActive] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [sortBy, setSortBy] = useState("priceAsc");
+  
 
-  
-  const { data, isFetching } =  getProducts();
-  const [sortedProducts , setSortedProducts ] = useState([])
-  
+  const { data, isFetching } = getProducts();
+  const [sortedProducts, setSortedProducts] = useState(data?.data?.data);
+
   const handleCardClick = (product) => {
     SetActive(true);
     setSelectedProduct(product);
   };
   const handleFilter = async (filter) => {
     let sortedProducts;
-
+   
     switch (filter) {
       case "priceAsc":
         sortedProducts = sortByPriceAsc(data?.data?.data);
@@ -47,19 +47,30 @@ export default function ProductsContainer({ routes }) {
       case "rating":
         sortedProducts = sortByRating(data?.data?.data);
         break;
-      // Add more cases for additional filters
+      case "to80":
+        sortedProducts = FilterPrice(data?.data?.data, 0, 80);
+        break;
+      case "to120":
+        sortedProducts = FilterPrice(data?.data?.data, 80, 120);
+        break;
+      case "to180":
+        sortedProducts = FilterPrice(data?.data?.data, 120, 180);
+        break;
+      case "to240":
+        sortedProducts = FilterPrice(data?.data?.data, 180, 240);
+        break;
+      case "above240":
+        sortedProducts = FilterPrice(data?.data?.data, 240, 1000);
+        break;
+
       default:
-        sortedProducts = data?.data?.data
+        sortedProducts = data?.data?.data;
     }
     setSortedProducts(sortedProducts);
   };
 
-  useEffect(()=>{
-   
-      handleFilter()
 
-  },[])
-  // if (isFetching) return <Loader></Loader>;
+  if (isFetching) return <Loader></Loader>;
   return (
     <>
       <ShopRoutesContainer notActive={routes}></ShopRoutesContainer>
@@ -68,14 +79,14 @@ export default function ProductsContainer({ routes }) {
         <Filter onFilter={handleFilter}></Filter>
       </div>
       <section className="productsContainer">
-        {sortedProducts?.map((product) => (
+        { sortedProducts? sortedProducts.map((product) => (
           <ProductCard
             product={product}
             key={product.id}
             onclick={handleCardClick}
             slug={product.documentId}
             img={product.url}
-            name={product.categories[0].category}
+            name={product.name}
             price={product.price}
             sale={product.sale}
             salePrec={product.salePrecentage}
@@ -83,7 +94,24 @@ export default function ProductsContainer({ routes }) {
             category={product.categories[0].category}
             isNew={product.isNew}
           ></ProductCard>
-        ))}
+        )): data?.data?.data?.map((product) => (
+          <ProductCard
+          product={product}
+          key={product.id}
+          onclick={handleCardClick}
+          slug={product.documentId}
+          img={product.url}
+          name={product.name}
+          price={product.price}
+          sale={product.sale}
+          salePrec={product.salePrecentage}
+          rating={product.rating}
+          category={product.categories[0].category}
+          isNew={product.isNew}
+        ></ProductCard>
+        )
+
+        )}
 
         {selectedProduct && (
           <QuickLook

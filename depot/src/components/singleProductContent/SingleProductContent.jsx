@@ -131,7 +131,7 @@ export default function SingleProductContent({ product }) {
               <p className="desc">{product.data.description}</p>
               <div className="categories">
                 <h6>Categories : </h6>
-                <p>Hard Wood</p>
+                <p>{product.data.categories[0].category}</p>
               </div>
               <div className="buttons">
                 <div className="quantity">

@@ -66,7 +66,7 @@ export default function CategoryMenu() {
           Category
           <FaCaretDown />
         </button>
-        <div className={`categoryUL`} style={catActive}>
+        <div className={`categoryUL animate__animated animate__slideInDown animate__faster`} style={catActive}>
 
         <input type="button"  onClick={()=> pcCategoryBtnActive(All)} className={activeCat == All ? "active" : "" } value="All" />
         <input type="button"  onClick={()=> pcCategoryBtnActive(Accessories)} className={activeCat == Accessories ? "active" : "" } value="Accessories" />

@@ -48,12 +48,12 @@ export default function Filter({ onFilter }) {
           <div className="priceFilter">
             <h6>price range</h6>
             <ul>
-              <li>All</li>
-              <li>$0-$10</li>
-              <li>$10-$20</li>
-              <li>$20-$30</li>
-              <li>$30-$40</li>
-              <li>40$+</li>
+              <li onClick={() => onFilter("")}>All</li>
+              <li onClick={() => onFilter("to80")}>$0-$80</li>
+              <li onClick={() => onFilter("to120")}>$80-$120</li>
+              <li onClick={() => onFilter("to180")}>$120-$180</li>
+              <li onClick={() => onFilter("to240")}>$180-$240</li>
+              <li onClick={() => onFilter("above240")}>240$+</li>
             </ul>
           </div>
         </div>

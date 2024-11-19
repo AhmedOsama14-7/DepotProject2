@@ -20,3 +20,11 @@ export const getSponsors = () => {
         queryFn: () => AxiosConfig(`sponsors/?populate=*`)
     })
 }
+export const getRelatedProducts = (category) => {
+    return useQuery({
+        queryKey : ["relatedProducts"],
+        queryFn: () => AxiosConfig(`categories/${category}/?populate=*`)
+    })
+}
+
+

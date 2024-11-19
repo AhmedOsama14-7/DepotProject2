@@ -14,4 +14,10 @@ export const sortByNameDesc = (products) => {
 export const sortByRating = (products) => {
     return [...products].sort((a, b) => a.rating - b.rating);
 };
+export const FilterPrice = (products , minPrice , maxPrice) => {
+    return [...products].filter(product => minPrice <= product.price && product.price <= maxPrice )
+};
+export const relatedProducts = (products , selectedProduct) => {
+    return [...products].filter(product => selectedProduct.categories[0].category == categories.category ?  categories.products.map(product) : "")
+};
   

@@ -1799,6 +1799,29 @@ body {
   transform: scale(1.7);
 }
 
+.relatedProducts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+.relatedProducts h6 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #929292;
+  text-transform: uppercase;
+}
+.relatedProducts .productsContainer {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.relatedProducts .productsContainer .productCard {
+  width: calc((100% - 6rem) / 100%);
+}
+
 @media (max-width: 850px) {
   .singleProductContent {
     width: 100vw;
