@@ -13,7 +13,11 @@ export default function Navbar() {
         setIsOpen(!isOpen);
     };
   
- 
+    const [name , setName ] = useState(localStorage.getItem("name"))
+    useEffect(()=> {
+        setName(localStorage.getItem("name"))
+      
+    } ,)
   return (
     <header>
       <LinksMenu></LinksMenu>
@@ -21,6 +25,7 @@ export default function Navbar() {
         <img
           src="https://depot.qodeinteractive.com/wp-content/themes/depot/assets/img/logo.png"
           alt="logo"
+         
         ></img>
       </div>
 
@@ -40,7 +45,8 @@ export default function Navbar() {
 
         <div className="acountContainer">
           <FaRegUser />
-          <NavLink to={"/logIn"}>Login</NavLink>
+          {name ? <NavLink  className={name} to={"/account"} >{name}</NavLink> : <NavLink to={"/logIn"}>Login</NavLink> }
+          
         </div>
       </div>
 

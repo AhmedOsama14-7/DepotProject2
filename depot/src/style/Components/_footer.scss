@@ -40,7 +40,7 @@ footer {
 
           a {
             text-transform: capitalize;
-            font-size: 0.8rem;
+            font-size: 1rem;
             // line-height: 1rem;
             color: $grey-text-colour;
             transition: 0.4s ease-in-out;
@@ -108,9 +108,21 @@ footer {
     footer .menuContainer{
         flex-wrap: wrap;
         gap: 3rem;
-    }
-    .footerList{
-        width: calc((100% - 3rem ) / 2);
+
+        .footerList{
+          width: calc((100% - 3rem ) / 2);
+          .listHeader{
+            font-size: 1.5rem;
+          }
+
+            .footerUl{
+              li{
+                a{
+                  font-size: 1.5rem;
+                }
+              }
+            }
+        }
     }
     footer .testimoniel{
         flex-direction: column;

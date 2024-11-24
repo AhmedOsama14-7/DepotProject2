@@ -11,7 +11,7 @@ export default function ShopRoutesContainer({productName ,notActive, productId})
 
 
         {productName ? 
-        <NavLink to={`${productId}`} >/    {productName}</NavLink> :  ""} 
+        <NavLink to={`/shop/singleProduct/${productId}}`} >/    {productName}</NavLink> :  ""} 
         
       </div>
     </div>
