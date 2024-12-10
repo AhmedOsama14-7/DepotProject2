@@ -15,6 +15,10 @@ export default function Footer() {
           list2={"what we do"}
           list3={"online stores"}
           list4={"Terms & conditions"}
+          link1={"/"}
+          link2={"/"}
+          link3={"/"}
+          link4={"/"}
         ></FooterLinksList>
         <FooterLinksList
           header={"Shop"}
@@ -22,6 +26,10 @@ export default function Footer() {
           list4={"On Sale"}
           list3={"New Products"}
           list2={"your cart"}
+          link1={"/shop/wishList"}
+          link2={"/cart"}
+          link3={"/"}
+          link4={"/"}
         ></FooterLinksList>
         <FooterLinksList
           header={"social media"}
@@ -29,6 +37,10 @@ export default function Footer() {
           list2={"instagram"}
           list3={"Git Hub"}
           list4={"Linked In"}
+          link1={"/"}
+          link2={"/"}
+          link3={"/"}
+          link4={"/"}
         ></FooterLinksList>
         <FooterLinksList
           header={"Profile"}
@@ -36,6 +48,10 @@ export default function Footer() {
           list2={"Checkout"}
           list3={"order tracking"}
           list4={"Help & support"}
+          link1={"/account"}
+          link2={"/"}
+          link3={"/"}
+          link4={"/"}
         ></FooterLinksList>
       </div>
 
@@ -51,13 +67,11 @@ export default function Footer() {
           </NavLink>
 
           <NavLink to={"/"}>
-          <FaGithub />
-
+            <FaGithub />
           </NavLink>
 
           <NavLink to={"/"}>
-          <FaInstagram />
-
+            <FaInstagram />
           </NavLink>
         </div>
       </div>

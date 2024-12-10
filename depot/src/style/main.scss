@@ -10,6 +10,9 @@
 @import"./Components/homePage";
 @import"./Components/login";
 @import"./Components/account";
+@import"./Components/wishList";
+@import"./Components/cart";
+@import"./Components/checkout";
 .loader{
     width: 105vw;
     height: 100vh;
@@ -38,5 +41,15 @@
 
     100%{
         transform: rotate(360deg);
+    }
+}
+@media (max-width:780px) {
+    .loader{
+        left: -3rem;
+    }
+}
+@media (max-width:480px) {
+    .loader{
+        left: -2rem;
     }
 }

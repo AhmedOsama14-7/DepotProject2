@@ -7,6 +7,9 @@ import SingleProduct from '../pages/singleProduct/SingleProduct';
 import ProductsContainer from '../components/productsContainer/ProductsContainer';
 import LoginPage from '../pages/loginPage/LoginPage';
 import Account from '../pages/account/Account';
+import WishList from '../pages/wishList/WishList';
+import Cart from '../pages/cart/Cart';
+import CheckOut from '../pages/checkout/CheckOut';
 
     export const routes = createBrowserRouter([
         {
@@ -14,10 +17,14 @@ import Account from '../pages/account/Account';
                 {index:true , element:<HomePage></HomePage>},
                 {path:"/shop" , element:<Shop></Shop> , children:[
                     {index:true , element:<ProductsContainer ></ProductsContainer> },
-                    {path:"singleProduct/:id" , element: <SingleProduct></SingleProduct>}
+                    {path:"singleProduct/:id" , element: <SingleProduct></SingleProduct>},
+                    {path:"/shop/wishlist" , element: <WishList />}
                 ]},
                 {path:"/logIn" , element: <LoginPage></LoginPage>},
-                {path:"/account" , element: <Account></Account>}
+                {path:"/account" , element: <Account></Account>},
+                {path:"/cart" , element: <Cart />},
+                {path:"/Checkout" , element: <CheckOut />},
+
                 
             ]
         }

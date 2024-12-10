@@ -70,6 +70,39 @@
     },
     "secondName": {
       "type": "string"
+    },
+    "user_wish_lists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::user-wish-list.user-wish-list",
+      "mappedBy": "users_permissions_users"
+    },
+    "country": {
+      "type": "string"
+    },
+    "state": {
+      "type": "text"
+    },
+    "town": {
+      "type": "string"
+    },
+    "streetAddress": {
+      "type": "string"
+    },
+    "apartmentAddress": {
+      "type": "string"
+    },
+    "user_carts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::user-cart.user-cart",
+      "mappedBy": "users_permissions_users"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::order.order",
+      "mappedBy": "users_permissions_users"
     }
   }
 }

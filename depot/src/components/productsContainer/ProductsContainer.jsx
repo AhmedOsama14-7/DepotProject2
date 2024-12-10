@@ -19,7 +19,6 @@ import {
 export default function ProductsContainer({ routes }) {
   const [active, SetActive] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  
 
   const { data, isFetching } = getProducts();
   const [sortedProducts, setSortedProducts] = useState(data?.data?.data);
@@ -30,7 +29,7 @@ export default function ProductsContainer({ routes }) {
   };
   const handleFilter = async (filter) => {
     let sortedProducts;
-   
+
     switch (filter) {
       case "priceAsc":
         sortedProducts = sortByPriceAsc(data?.data?.data);
@@ -69,7 +68,6 @@ export default function ProductsContainer({ routes }) {
     setSortedProducts(sortedProducts);
   };
 
-
   if (isFetching) return <Loader></Loader>;
   return (
     <>
@@ -79,39 +77,39 @@ export default function ProductsContainer({ routes }) {
         <Filter onFilter={handleFilter}></Filter>
       </div>
       <section className="productsContainer">
-        { sortedProducts? sortedProducts.map((product) => (
-          <ProductCard
-            product={product}
-            key={product.id}
-            onclick={handleCardClick}
-            slug={product.documentId}
-            img={product.url}
-            name={product.name}
-            price={product.price}
-            sale={product.sale}
-            salePrec={product.salePrecentage}
-            rating={product.rating}
-            category={product.categories[0].category}
-            isNew={product.isNew}
-          ></ProductCard>
-        )): data?.data?.data?.map((product) => (
-          <ProductCard
-          product={product}
-          key={product.id}
-          onclick={handleCardClick}
-          slug={product.documentId}
-          img={product.url}
-          name={product.name}
-          price={product.price}
-          sale={product.sale}
-          salePrec={product.salePrecentage}
-          rating={product.rating}
-          category={product.categories[0].category}
-          isNew={product.isNew}
-        ></ProductCard>
-        )
-
-        )}
+        {sortedProducts
+          ? sortedProducts.map((product) => (
+              <ProductCard
+                product={product}
+                key={product.id}
+                onclick={handleCardClick}
+                slug={product.documentId}
+                img={product.url}
+                name={product.name}
+                price={product.price}
+                sale={product.sale}
+                salePrec={product.salePrecentage}
+                rating={product.rating}
+                category={product.categories[0].category}
+                isNew={product.isNew}
+              ></ProductCard>
+            ))
+          : data?.data?.data?.map((product) => (
+              <ProductCard
+                product={product}
+                key={product.id}
+                onclick={handleCardClick}
+                slug={product.documentId}
+                img={product.url}
+                name={product.name}
+                price={product.price}
+                sale={product.sale}
+                salePrec={product.salePrecentage}
+                rating={product.rating}
+                category={product.categories[0].category}
+                isNew={product.isNew}
+              ></ProductCard>
+            ))}
 
         {selectedProduct && (
           <QuickLook

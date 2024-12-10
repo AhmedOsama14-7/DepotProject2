@@ -11,7 +11,6 @@ footer {
     display: flex;
     // justify-content: space-between;
     gap: 7rem;
-    
 
     .footerList {
       display: flex;
@@ -22,7 +21,7 @@ footer {
         text-transform: uppercase;
         color: $black-colour;
         font-size: 1rem;
-        
+
         letter-spacing: 0.2rem;
         transform: translateX(1rem);
       }
@@ -36,7 +35,6 @@ footer {
           display: flex;
           align-items: center;
           overflow: hidden;
-          
 
           a {
             text-transform: capitalize;
@@ -51,10 +49,10 @@ footer {
             transition: 0.4s ease-in-out;
           }
           &:hover {
-              transform: translateX(1rem);
-              svg {
-              animation: arrow .2s;
-            transform: translateX(-3px);
+            transform: translateX(1rem);
+            svg {
+              animation: arrow 0.2s;
+              transform: translateX(-3px);
             }
           }
         }
@@ -86,106 +84,92 @@ footer {
 }
 
 @keyframes arrow {
-    0%{
-        transform: translateX(-5rem);
-    }
+  0% {
+    transform: translateX(-5rem);
+  }
 
-    80%{
-        transform: translateX(0);
-    }
-    90%{
-        transform: translateX(-3px);
-    }
-    100%{
-        transform: translateX(0rem);
-    }
+  80% {
+    transform: translateX(0);
+  }
+  90% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
 }
 
-@media (max-width:1024px) {
-    footer{
-        gap: 7rem;
-    }
-    footer .menuContainer{
-        flex-wrap: wrap;
-        gap: 3rem;
+@media (max-width: 1024px) {
+  footer {
+    gap: 7rem;
+  }
+  footer .menuContainer {
+    flex-wrap: wrap;
+    gap: 3rem;
 
-        .footerList{
-          width: calc((100% - 3rem ) / 2);
-          .listHeader{
-            font-size: 1.5rem;
-          }
-
-            .footerUl{
-              li{
-                a{
-                  font-size: 1.5rem;
-                }
-              }
-            }
-        }
-    }
-    footer .testimoniel{
-        flex-direction: column;
-        align-items: flex-start;
-        margin-left: 1rem;
-    }
-}
-
-@media (max-width:768px) {
-    footer .menuContainer{
-        flex-direction: column;
-    }
-}
-
-@media (max-width:665px) {
-
-  footer{
-
-    .menuContainer {
-      
     .footerList {
-      width: fit-content;
+      width: calc((100% - 3rem) / 2);
       .listHeader {
         font-size: 1.5rem;
       }
 
       .footerUl {
-        
-
         li {
-         
           a {
             font-size: 1.5rem;
-            svg{
-              font-size: 1.5rem;
-            }
-            
           }
-         
         }
       }
     }
   }
-
-  .testimoniel {
-   
-    p {
-      
-      font-size: 1.25rem;
-      
-    }
+  footer .testimoniel {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 1rem;
   }
-
-  .socialMedia {
-    
-    p {
-      
-      font-size: 1.5rem;
-    }
-    svg{
-      font-size: 1.5rem;
-    }
-  }
-
 }
+
+@media (max-width: 768px) {
+  footer .menuContainer {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 665px) {
+  footer {
+    .menuContainer {
+      .footerList {
+        width: fit-content;
+        .listHeader {
+          font-size: 1.5rem;
+        }
+
+        .footerUl {
+          li {
+            a {
+              font-size: 1.5rem;
+              svg {
+                font-size: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .testimoniel {
+      p {
+        font-size: 1.25rem;
+      }
+    }
+
+    .socialMedia {
+      p {
+        font-size: 1.5rem;
+      }
+      svg {
+        font-size: 1.5rem;
+      }
+    }
+  }
 }

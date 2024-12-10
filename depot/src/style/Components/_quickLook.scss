@@ -1,296 +1,285 @@
-
-body{
-position: relative;
+body {
+  position: relative;
 }
-.quickLookPage{
-    width: 100vw;
-    left: -4rem;
-    right: -4rem;
-    height: 100dvh;
-    backdrop-filter: brightness(0.4) contrast(1.6) ; 
+.quickLookPage {
+  width: 100vw;
+  left: -4rem;
+  right: -4rem;
+  height: 100dvh;
+  backdrop-filter: brightness(0.4) contrast(1.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+
+  &.unactive {
     display: none;
-    align-items: center;
-    justify-content: center;
-    z-index:30;
+  }
 
-    &.unactive{     
-        display:none;
+  &.active {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  .quickLookSection {
+    display: flex;
+    background-color: white;
+    width: 80%;
+    height: 80%;
+    gap: 2rem;
+    padding-right: 2rem;
+
+    .img {
+      width: 45%;
+      height: 100%;
+      background: $grey-bg;
+      position: relative;
+
+      svg {
+        position: absolute;
+        right: 1rem;
+        font-size: 20px;
+        cursor: pointer;
+        top: 1.5rem;
+        display: none;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
-    &.active{
-        display:flex;
-        position: fixed;
-        top:0;
-        right:0;
-        left:0;
-        bottom:0;
-    }
-
-    .quickLookSection{
+    .info {
+      color: $black-colour;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding-top: 1.5rem;
+      .head {
         display: flex;
-        background-color: white;
-        width: 80%;
-        height:80%;
-        gap: 2rem;
-        padding-right: 2rem;
+        flex-direction: column;
+        gap: 0.2rem;
+        position: relative;
 
-        .img{
-            width:45%;
-            height:100%;
-            background:$grey-bg;
-            position:relative;
-            
-            svg{
-                position: absolute;
-                right:1rem;
-                font-size: 20px;
-                cursor: pointer;
-                top:1.5rem;
-                display:none;
-            }
-            img{
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+        svg {
+          position: absolute;
+          right: -1rem;
+          font-size: 20px;
+          cursor: pointer;
         }
-        
-        .info{
-            color: $black-colour;
+
+        h3 {
+          margin-top: 2rem;
+          font-size: 1.5rem;
+          letter-spacing: 0.1rem;
+          font-weight: 500;
+          text-transform: uppercase;
+        }
+
+        .price {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          p {
+            font-weight: 100;
+          }
+          .actuallPrice {
+            font-size: 1.5rem;
+          }
+
+          .sale {
+            font-size: 1rem;
+            text-decoration: line-through;
+            color: $grey-text-colour;
+          }
+        }
+      }
+
+      .body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .stars {
+          display: flex;
+          align-items: center;
+        }
+
+        .desc {
+          color: $grey-text-colour;
+          font-size: 0.8rem;
+          font-weight: 500;
+          word-spacing: 0.1rem;
+          width: 80%;
+        }
+        .buttons {
+          display: flex;
+          width: 80%;
+          height: 3rem;
+          margin-top: 2rem;
+          .quantity {
+            border: 0.1px solid $grey-text-colour;
+            display: flex;
             width: 50%;
-            height:100%;
-            display:flex;
-            flex-direction:column;
-            gap:2rem;
-            flex-wrap:wrap;
-            padding-top:1.5rem;
-            .head{
-                display: flex;
-                flex-direction: column;
-                gap: .2rem;
-                position: relative;
+            justify-content: space-between;
+            height: 100%;
+            padding-inline: 1rem;
+            align-items: center;
+            border-right: none;
+            opacity: 0.4;
+            .quantityCounter {
+              display: flex;
+              align-items: center;
+              gap: 0.2rem;
 
-                svg{
-                    position: absolute;
-                    right: -1rem;
-                    font-size: 20px;
-                    cursor: pointer;
-                }
-
-                h3{
-                    margin-top:2rem;
-                    font-size: 1.5rem;
-                    letter-spacing: .1rem;
-                    font-weight:500;
-                    text-transform:uppercase;
-                }
-
-                .price{
-                    display: flex;
-                    align-items: center;
-                    gap: 1rem;
-
-                    p{
-                        font-weight:100;
-
-                    }
-                    .actuallPrice{
-
-                        font-size:1.5rem;
-                    }
-
-                    .sale{
-                        font-size: 1rem;
-                        text-decoration: line-through;
-                        color: $grey-text-colour
-
-                    }
-                }
+              svg {
+                cursor: pointer;
+              }
             }
-
-            .body{
-                display: flex;
-                flex-direction:column;
-                gap:.5rem;
-
-                .stars{
-                    display: flex;
-                    align-items:center;
-                }
-
-                .desc{
-                    color:$grey-text-colour;
-                    font-size:.8rem;
-                    font-weight:500;
-                    word-spacing: .1rem;
-                    width:80%;
-                }
-                .buttons{
-                    display:flex;
-                    width:80%;
-                    height:3rem;
-                    margin-top: 2rem;
-                    .quantity{
-                        border:.1px solid $grey-text-colour;
-                        display:flex;
-                        width:50%;
-                        justify-content:space-between;
-                        height:100%;
-                        padding-inline:1rem;
-                        align-items:center;
-                        border-right:none ;
-                        opacity: .4;
-                        .quantityCounter{
-                            display: flex;
-                            align-items: center;
-                            gap: .2rem;
-
-                            svg{
-                                cursor: pointer;
-                            }
-                        }
-
-                    }
-                    .addToCart{
-                        background-color: $black-colour;
-                        text-align: center;
-                        width: 50%;
-                        cursor: pointer;
-                        color: white;
-                        font-size: .8rem;
-                        font-weight: 500;
-                        text-transform: uppercase;
-                        letter-spacing: .1rem;
-                        border: none;
-                    }
-                }
-
-                .wishlist{
-                    display: flex;
-                    gap: .5rem;
-                    align-items: center;
-                    margin-top: 1.5rem;
-                    p{
-                        text-transform: uppercase;
-                        letter-spacing: .1rem;
-                        font-size: .8rem;
-
-                    }
-                    
-
-                    svg{
-                        cursor: pointer;
-                    }
-                }
-            }
-
+          }
+          .addToCart {
+            background-color: $black-colour;
+            text-align: center;
+            width: 50%;
+            cursor: pointer;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            border: none;
+          }
         }
 
+        .wishlist {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+          flex-direction: row;
+          margin-top: 1.5rem;
+          p {
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            font-size: 0.8rem;
+          }
+
+          svg {
+            cursor: pointer;
+          }
+        }
+      }
     }
+  }
 }
 
-@media (max-width:1024px){
-    .quickLookPage{
-        .quickLookSection{
-            flex-direction:column;
-            padding-right: 0rem;
-            height:80%;
+@media (max-width: 1024px) {
+  .quickLookPage {
+    .quickLookSection {
+      flex-direction: column;
+      padding-right: 0rem;
+      height: 80%;
 
-            .img{
-                width: 100%;
-                height: 40%;
-                img{
-                    object-fit:cover;
-                }
-                svg{
-                    display:flex;
-                }
-            }
-
-            .info{
-                width:100%;
-                padding-inline: 3rem;
-                
-                .head{
-                    svg{
-                        top:-350%;
-                        z-index: 10;
-                        display:none
-
-                    }
-                    h3{
-                        font-size: 2rem;
-                        margin-top:0;
-                    }
-
-                    .price{
-
-                        .sale{
-                            font-size: 1.5rem;
-                        }
-
-                        .actuallPrice{
-                            p{
-                                font-size: 1.8rem;
-                            }
-                        }
-                    }
-                }
-
-                .body{
-                    .desc{
-                        font-size: 1.25rem;
-                    }
-
-                    .wishlist{
-                        p{
-                            font-size: 1.25rem;
-                        }
-
-                        svg{
-                            font-size:1.25rem;
-                        }
-                    }
-                }
-            }
+      .img {
+        width: 100%;
+        height: 40%;
+        img {
+          object-fit: cover;
         }
+        svg {
+          display: flex;
+        }
+      }
+
+      .info {
+        width: 100%;
+        padding-inline: 3rem;
+
+        .head {
+          svg {
+            top: -350%;
+            z-index: 10;
+            display: none;
+          }
+          h3 {
+            font-size: 2rem;
+            margin-top: 0;
+          }
+
+          .price {
+            .sale {
+              font-size: 1.5rem;
+            }
+
+            .actuallPrice {
+              p {
+                font-size: 1.8rem;
+              }
+            }
+          }
+        }
+
+        .body {
+          .desc {
+            font-size: 1.25rem;
+          }
+
+          .wishlist {
+            p {
+              font-size: 1.25rem;
+            }
+
+            svg {
+              font-size: 1.25rem;
+            }
+          }
+        }
+      }
     }
+  }
 }
 
-@media (max-width:460px) {
-    .quickLookPage{
-        .quickLookSection{
-            height:90%;
+@media (max-width: 460px) {
+  .quickLookPage {
+    .quickLookSection {
+      height: 90%;
 
-            .info{
-                .head{
-                    svg{
-                        top: -450%;
-                    }
-                }
-            }
+      .info {
+        .head {
+          svg {
+            top: -450%;
+          }
         }
+      }
     }
+  }
 }
-@media (max-width:360px) {
-    .quickLookPage{
-        .quickLookSection{
-            height:95%;
-            gap:1rem;
-            .info{
-                
-                .head{
-                    svg{
-                        top: -350%;
-                    }
-                }
-
-                .body{
-                    .desc{
-                        width:90%;
-                    }
-                }
-            }
+@media (max-width: 360px) {
+  .quickLookPage {
+    .quickLookSection {
+      height: 95%;
+      gap: 1rem;
+      .info {
+        .head {
+          svg {
+            top: -350%;
+          }
         }
+
+        .body {
+          .desc {
+            width: 90%;
+          }
+        }
+      }
     }
+  }
 }

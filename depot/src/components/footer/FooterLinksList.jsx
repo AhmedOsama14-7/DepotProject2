@@ -8,18 +8,16 @@ export default function FooterLinksList({
   list3,
   list4,
 }) {
-
-  
   return (
     <div className="footerList">
       <h5 className="listHeader">{header}</h5>
       <ul className="footerUl">
         <li>
-          <IoIosArrowRoundForward  />
+          <IoIosArrowRoundForward />
           <NavLink to={"/"}>{list1}</NavLink>
         </li>
         <li>
-          <IoIosArrowRoundForward   />
+          <IoIosArrowRoundForward />
           <NavLink to={"/"}>{list2}</NavLink>
         </li>
         <li>

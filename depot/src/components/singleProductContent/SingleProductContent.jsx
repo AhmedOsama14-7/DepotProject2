@@ -1,31 +1,25 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import { useParams } from "react-router-dom";
-import { FaXmark } from "react-icons/fa6";
 import { FaCaretLeft } from "react-icons/fa";
 import { FaCaretRight } from "react-icons/fa";
-import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa6";
 import SingleProductTabs from "../singleProductTabs/SingleProductTabs";
 import ImgGallerySwipper from "../imgGallerySwipper/ImgGallerySwipper";
+import { useMutation, useQueryClient } from "react-query";
+import { AxiosConfig } from "../../axios/axiosConfig";
+import {cart} from "../../api/api"
 export default function SingleProductContent({ product }) {
   const [counter, SetCounter] = useState(1);
-  const [unactive, setUnactive] = useState(true);
-  const [heartBtn, SetHeartBtn] = useState(false);
-  const [actiecGallery, SetActiveGallery] = useState(false);
 
+  const [actiecGallery, SetActiveGallery] = useState(false);
+  
+  const [id, setId] = useState(localStorage.getItem("id"));
+  const [jwt, setJwt] = useState(localStorage.getItem("jwt"));
   function handleActive() {
     SetActiveGallery(!actiecGallery);
   }
   const minError = () => toast.error("Cannot Choose Less than 1");
   const maxError = () => toast.error("Cannot Choose more than 10");
-  const wishlist = () => {
-    if (heartBtn == true) {
-      toast.success("Successfully removed from WishList");
-    } else {
-      toast.success("Successfully added to WishList");
-    }
-  };
 
   function incremnt() {
     if (counter < 10) {
@@ -44,9 +38,99 @@ export default function SingleProductContent({ product }) {
       minError();
     }
   }
+  const queryClient = useQueryClient();
 
-  function toggle() {
-    SetHeartBtn(!heartBtn);
+  const addToWishList =  useMutation({
+    mutationKey: ["wish-list"],
+    mutationFn: async () =>
+    await AxiosConfig(`user-wish-lists?populate=*`, {
+        method: "POST",
+        data: {
+          data: {
+            url: product.data.url,
+            name: product.data.name,
+            price: product.data.price,
+            productId: product.data.documentID,
+            users_permissions_users: [parseInt(id)],
+          },
+        },
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+          'Content-Type': 'application/json',
+        },
+      }),
+    onSuccess: () => {
+      toast.success("Product added to wish list");
+      queryClient.invalidateQueries(["cart"]);
+    }, onError: (err) => {
+      if(err.status == 403){
+        toast.error("please login first")
+      }
+    }
+  });
+  const addToCart = useMutation({
+    mutationKey: ["cart"],
+    mutationFn: async () =>
+      await AxiosConfig(`user-carts?populate=*`, {
+        method: "POST",
+        data: {
+          data: {
+            url: product.data.url,
+            name: product.data.name,
+            price: product.data.price,
+            productId: product.data.documentId,
+            quantity: counter ,
+            totalPrice: (counter ) * product.data.price,
+            users_permissions_users: [parseInt(id)],
+          },
+        },
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+          "Content-Type": "application/json",
+        },
+      }),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["cart"]);
+      toast.success("Product added to cart" , {
+        icon:"🛒"
+      });
+    },
+    onError: (err) => {
+      if (err.status == 403) {
+        toast.error("please login first");
+      }
+    },
+  });
+  
+ 
+
+  const {data , isLoading} = cart(id)
+  const [sameProducts , setSameProducts] = useState()
+  useEffect(()=>{
+    setSameProducts(data?.data)
+  })
+  const addingToWishList = () => {
+    const isInWishList = sameProducts?.user_wish_lists?.some(product => product.productId === product.data.documentId  )
+    
+    if(isInWishList){
+      toast.success("Product is already in wish list" , {
+        icon:"🖤"
+      });
+    }else{
+      addToWishList.mutate();
+    }
+  };
+  const addToCartClick = () => {
+    const isInCart = sameProducts?.user_carts?.some(item => item.productId === product.data.documentId )
+    
+    if(isInCart){
+      toast.success("Product is already in cart" , {
+        icon:"🛒"
+      });
+    }else{
+      addToCart.mutate();
+    }
+      
   }
   const categories =
     product?.attributes?.categories?.map((cat) => cat.category) || [];
@@ -145,17 +229,12 @@ export default function SingleProductContent({ product }) {
                   </div>
                 </div>
 
-                <button className="addToCart">Add to cart</button>
+                <button className="addToCart" onClick={addToCartClick }>{addToCart.isLoading ? "Adding to cart..." : "add to cart"}</button>
               </div>
 
               <div className="wishlist">
-                <p onClick={toggle}>
-                  {" "}
-                  {heartBtn ? (
-                    <FaHeart onClick={wishlist} />
-                  ) : (
-                    <CiHeart onClick={wishlist} />
-                  )}
+                <p onClick={addingToWishList}>
+                  <FaHeart />
                 </p>
                 <p>Add to wishlist</p>
               </div>
@@ -164,7 +243,9 @@ export default function SingleProductContent({ product }) {
         </div>
 
         <div
-          className={`ImgGallery ${actiecGallery ? "active" : ""} animate__animated animate__fadeIn  animate__faster`}
+          className={`ImgGallery ${
+            actiecGallery ? "active" : ""
+          } animate__animated animate__fadeIn  animate__faster`}
           onClick={handleActive}
         >
           <ImgGallerySwipper

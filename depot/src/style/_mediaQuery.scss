@@ -2,8 +2,7 @@ html {
   font-size: 18px;
   overflow-x: hidden;
 }
-body{
-
+body {
   margin-top: 1rem;
   margin-inline: 4rem;
 }
@@ -62,21 +61,17 @@ p {
 @media (max-width: 768px) {
   html {
     font-size: 12px;
-
   }
-  body{
-    
+  body {
     margin-inline: 3rem;
   }
 }
 @media (max-width: 460px) {
   html {
     font-size: 10px;
-
   }
-  
-  body{
-    
+
+  body {
     margin-inline: 2rem;
   }
 }

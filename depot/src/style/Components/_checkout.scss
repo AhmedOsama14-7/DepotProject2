@@ -1,0 +1,336 @@
+.checkout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  .addresses {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    h4 {
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
+    .err {
+      font-size: 1rem;
+      color: red;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+
+      .submit {
+        width: 40%;
+        height: 3rem;
+        background: $black-colour;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 500;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+      }
+      label {
+        font-size: 1.25rem;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+      }
+      select {
+        width: 100%;
+        border: 1px solid $grey-text-colour;
+        height: 3rem;
+        color: $grey-text-colour;
+        padding-inline: 1rem;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+
+        &:focus {
+          outline: none;
+        }
+
+        .option {
+          height: 10rem;
+          overflow: hidden;
+          font-size: 2rem;
+        }
+      }
+
+      div {
+        .wrapper_input {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+
+          label {
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+          }
+
+          input {
+            height: 3rem;
+            width: 100%;
+            border: 1px solid $grey-text-colour;
+            color: $grey-text-colour;
+            padding-left: 1rem;
+            font-size: 0.8rem;
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .noProducts,.noAccount{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 50vh;
+
+    h6{
+      font-size:2rem;
+      font-weight:600;
+      text-transform: uppercase;
+    }
+
+    div{
+    
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $black-colour;
+      padding-inline: 2rem;
+      padding-block: 1rem;
+
+      a{
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+
+    tr {
+      width: 100%;
+      display: flex;
+      border-bottom: 0.5px solid $grey-text-colour;
+      height: 3rem;
+
+      &.hide {
+        display: none;
+      }
+      td,
+      th {
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        color: $grey-text-colour;
+        text-transform: capitalize;
+
+        span {
+          padding-left: 1rem;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          text-transform: lowercase;
+        }
+      }
+      &.textarea {
+        width: 100%;
+        height: fit-content;
+
+        margin-block: 1rem;
+        padding-bottom: 1rem;
+        td {
+          width: 100%;
+        }
+        textarea {
+          height: 5rem;
+          width: 100%;
+          padding-inline: 1rem;
+          padding-block: 0.5rem;
+          outline: none;
+          resize: none;
+          color: $grey-text-colour;
+          font-size: 16px;
+        }
+      }
+      &.shippingRow {
+        height: fit-content;
+
+        th {
+          height: 100%;
+          align-self: center;
+        }
+        .shipping {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          align-items: flex-start;
+          padding-block: 1rem;
+
+          .input {
+            display: flex;
+            gap: 0.2rem;
+
+            label {
+              text-transform: capitalize;
+              color: $grey-text-colour;
+            }
+
+            input {
+              accent-color: $black-colour;
+            }
+          }
+
+          p {
+            color: $grey-text-colour;
+            font-size: 0.8rem;
+
+            span {
+              color: $black-colour;
+            }
+          }
+        }
+      }
+
+      th {
+        font-weight: 600;
+      }
+    }
+
+    tfoot {
+      width: 100%;
+      padding-top: 2rem;
+      tr {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        border: none;
+      }
+
+      td:first-child {
+        width: 100%;
+        font-size: 0.8rem;
+        padding-top: 2rem;
+
+        a {
+          font-size: 0.8rem;
+          cursor: pointer;
+          padding-left: 0.5rem;
+          text-transform: lowercase;
+        }
+      }
+
+      td:last-child {
+        background-color: $black-colour;
+        color: white;
+        font-weight: 500;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+        width: 25%;
+        cursor: pointer;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .checkout {
+    .imgBanner {
+      position: relative;
+      left: -4rem;
+    }
+    .addresses {
+      h4 {
+        font-size: 2rem;
+      }
+      form {
+        gap: 2rem;
+        label {
+          font-size: 1.75rem;
+        }
+        .err {
+          font-size: 1.25rem;
+        }
+        .submit {
+          height: 4rem;
+          font-size: 1.25rem;
+          width: 50%;
+        }
+        select {
+          font-size: 1.5rem;
+          height: 5rem;
+        }
+        div {
+          .wrapper_input {
+            label {
+              font-size: 1.75rem;
+            }
+            input {
+              font-size: 1.5rem;
+              height: 5rem;
+            }
+          }
+        }
+      }
+    }
+    table {
+      tr {
+        height: 5rem;
+
+        th,
+        td {
+          font-size: 1.5rem;
+        }
+      }
+
+      tfoot {
+        tr {
+          td:first-child {
+            width: 100%;
+            font-size: 1.25rem;
+          }
+
+          td:last-child {
+            width: 40%;
+            height: 5rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .checkout {
+    .imgBanner {
+      left: -2rem;
+    }
+  }
+}

@@ -6,10 +6,8 @@
   box-sizing: border-box;
   font-family: "Catamaran", sans-serif;
 }
-body{
+body {
   position: relative;
-  
-  
 }
 a {
   text-decoration: none;
@@ -18,8 +16,8 @@ a {
   text-transform: uppercase;
 }
 
-.active{
-    color: $grey-text-colour;
+.active {
+  color: $grey-text-colour;
 }
 
 ul,
@@ -27,7 +25,7 @@ li {
   list-style: none;
 }
 
-.topArrow{
+.topArrow {
   background-color: $black-colour;
   width: 2.5rem;
   height: 2.5rem;
@@ -40,5 +38,4 @@ li {
   right: -3rem;
   bottom: 5rem;
   z-index: 4;
-  
 }

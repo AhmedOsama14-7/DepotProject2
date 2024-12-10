@@ -1,280 +1,267 @@
-.homePagination{
-    width: 100%;
-    height: 80vh;
-    position: relative;
-    display: flex;
-    align-items: center;
+.homePagination {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
   background-color: rgb(243, 243, 243);
-    .pagination{
-        position: absolute;
-        left: -2.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-
-        button{
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 1rem;
-            color: $grey-text-colour;
-
-        
-        
-                .line{
-                    position: absolute;
-                    z-index: 3;
-                    width: 1rem;
-                    height: 3rem;
-                    height: .1rem; 
-                    background-color: $grey-text-colour;
-                    transition: linear .2s;
-                    transform: translate(1.5rem,-.8rem);
-
-                    &.active{
-                        transition: .4 linear ease-in-out;
-                        background-color: $black-colour;
-                        width: 3rem;
-                    }
-                }
-
-                &:hover{
-                    overflow-x: visible;
-                    color: $black-colour;
-    
-                    .line{
-                        background-color: $black-colour;
-                        width: 4rem;
-                    }
-                }
-
-                &.active{
-                    color: $black-colour;
-
-                    .line{
-                        background-color: $black-colour;
-                        width: 4rem;
-                    }
-                }
-            }
-            } 
-        }
-    
-
-.content{
-    width: 100%;
-    height: 100%;
-}
-.paginationContent{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  .pagination {
+    position: absolute;
+    left: -2.5rem;
     display: flex;
-    padding-inline: 4rem;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    position: relative;
-    .text{
-        padding-bottom: 4rem;
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        
-        gap: 1.5rem;
-        h3{
-            color: $black-colour;
-            font-size: 2rem;
-            letter-spacing: .2rem;
-            
-            font-weight: 600;
-            display: inline-flex;
-            flex-wrap: wrap;
-            
-            text-transform: uppercase;
-        }
-        
-        p{
-            font-size: 1rem;
-            color: #999;
-        }
-    }
-    .metalChair{
-        height: 100% !important;
-        
-        img{
-            bottom: 2rem !important;
-        }
-    }
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 
-    
-    .img{
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 1rem;
+      color: $grey-text-colour;
+
+      .line {
         position: absolute;
-        right: 4rem;
-        height: 130%;
-        width: 40%;
-        display: flex;
-        gap: 3rem;
+        z-index: 3;
+        width: 1rem;
+        height: 3rem;
+        height: 0.1rem;
+        background-color: $grey-text-colour;
+        transition: linear 0.2s;
+        transform: translate(1.5rem, -0.8rem);
 
-        &.lights{
-            display: flex;
-            height: 90%;
-            gap: 2rem;
-            top: 0;
-            justify-content: space-between;
-            & img{
-                top: -20% !important;
-                width: 45%;
-                position: relative;
-            }
+        &.active {
+          transition: 0.4 linear ease-in-out;
+          background-color: $black-colour;
+          width: 3rem;
         }
-        img{
-            position: absolute;
-            bottom: -30%;
-            
-            height:100%;
-            width: 100%;
-            // object-fit: cover;
-        }
+      }
 
+      &:hover {
+        overflow-x: visible;
+        color: $black-colour;
+
+        .line {
+          background-color: $black-colour;
+          width: 4rem;
+        }
+      }
+
+      &.active {
+        color: $black-colour;
+
+        .line {
+          background-color: $black-colour;
+          width: 4rem;
+        }
+      }
     }
+  }
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+}
+.paginationContent {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  padding-inline: 4rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  .text {
+    padding-bottom: 4rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    gap: 1.5rem;
+    h3 {
+      color: $black-colour;
+      font-size: 2rem;
+      letter-spacing: 0.2rem;
+
+      font-weight: 600;
+      display: inline-flex;
+      flex-wrap: wrap;
+
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #999;
+    }
+  }
+  .metalChair {
+    height: 100% !important;
+
+    img {
+      bottom: 2rem !important;
+    }
+  }
+
+  .img {
+    position: absolute;
+    right: 4rem;
+    height: 130%;
+    width: 40%;
+    display: flex;
+    gap: 3rem;
+
+    &.lights {
+      display: flex;
+      height: 90%;
+      gap: 2rem;
+      top: 0;
+      justify-content: space-between;
+      & img {
+        top: -20% !important;
+        width: 45%;
+        position: relative;
+      }
+    }
+    img {
+      position: absolute;
+      bottom: -30%;
+
+      height: 100%;
+      width: 100%;
+      // object-fit: cover;
+    }
+  }
 }
 @keyframes linear {
-    0%{
-        width: 2rem;
-    }
+  0% {
+    width: 2rem;
+  }
 
-    100%{
-        width: 7rem;
-    }
+  100% {
+    width: 7rem;
+  }
 }
 
-@media (max-width:1024px) {
-    .paginationContent{
-        .text{
-            h3{
-              font-size: 2rem;
-            }
-            
-            p{
-                font-size: 1.5rem;
-                
-            }
-        }
-    }
-    .homePagination{
-        justify-content: center;
-        left: -4rem;
-        width: 100vw;
-        .pagination{
-            bottom: 1rem;
-            left: 50%;
-            flex-direction: row;
-            z-index: 5;
-            button{
-                background-color: $black-colour;
-                width: .5rem;
-                height: .5rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: $black-colour !important;
-                border-radius: 50%;
-                overflow: hidden;
-                &.active{
-                    width: 1rem;
-                    height: 1rem;
-                }
-                .line{
-                    display: none;
-                }
-            }
-        }
-    }
-.paginationContent{
+@media (max-width: 1024px) {
+  .paginationContent {
+    .text {
+      h3 {
+        font-size: 2rem;
+      }
 
-    
-        
-        .metalChair{
-            height: 90% !important;
-            width: 50%;
-            right: 0rem;
-            
-            img{
-                bottom: 2rem !important;
-            }
-        }
-    
-        .lights{
-            display: flex;
-            height: 90%;
-            width: 50%;
-            gap: 2rem;
-            top: 0;
-            right: 0rem;
-            justify-content: space-between;
-            img{
-                top: -20% !important;
-                width: 40%;
-                position: relative;
-            }
-        }
-       .img{
-            right: 1rem;
-            img{
-               right: 0rem;
-               bottom: -30%;
-                height:100%;
-                width: 100%;
-            // object-fit: cover;
-        }
+      p {
+        font-size: 1.5rem;
+      }
     }
+  }
+  .homePagination {
+    justify-content: center;
+    left: -4rem;
+    width: 100vw;
+    .pagination {
+      bottom: 1rem;
+      left: 50%;
+      flex-direction: row;
+      z-index: 5;
+      button {
+        background-color: $black-colour;
+        width: 0.5rem;
+        height: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $black-colour !important;
+        border-radius: 50%;
+        overflow: hidden;
+        &.active {
+          width: 1rem;
+          height: 1rem;
+        }
+        .line {
+          display: none;
+        }
+      }
     }
+  }
+  .paginationContent {
+    .metalChair {
+      height: 90% !important;
+      width: 50%;
+      right: 0rem;
+
+      img {
+        bottom: 2rem !important;
+      }
+    }
+
+    .lights {
+      display: flex;
+      height: 90%;
+      width: 50%;
+      gap: 2rem;
+      top: 0;
+      right: 0rem;
+      justify-content: space-between;
+      img {
+        top: -20% !important;
+        width: 40%;
+        position: relative;
+      }
+    }
+    .img {
+      right: 1rem;
+      img {
+        right: 0rem;
+        bottom: -30%;
+        height: 100%;
+        width: 100%;
+        // object-fit: cover;
+      }
+    }
+  }
 }
 
 @media (max-width: 600px) {
+  .homePagination {
+    width: 105dvw;
+    height: 70vh;
+    position: relative;
+    left: -3rem;
+  }
+  .paginationContent {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 
-    .homePagination{
-       width: 105dvw;
-       height: 70vh;
-       position: relative;
-       left: -3rem;
+    .text {
+      width: 100%;
     }
-    .paginationContent{
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-       
-       
 
-        .text{
-            width: 100%;
-        }
+    .img {
+      top: 0;
+      height: 70%;
+      right: 30%;
+      &.lights {
+        width: 50%;
+        height: 80%;
+        right: 20%;
+      }
 
-        .img{
-            top: 0;
-            height: 70%;
-            right: 30%;
-            &.lights{
-                width: 50%;
-                height: 80%;
-                right: 20%;
-              
-            }
+      &.metalChair {
+        height: 70% !important;
+        width: 60%;
+        top: 0;
+        right: 18%;
+      }
 
-            &.metalChair{
-                height: 70% !important;
-                width: 60%;
-                top: 0;
-                right: 18%;
-            }
-
-            img{
-                top: 0;
-            }
-        }
+      img {
+        top: 0;
+      }
     }
+  }
 }

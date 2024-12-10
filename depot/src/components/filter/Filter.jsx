@@ -12,7 +12,7 @@ export default function Filter({ onFilter }) {
   const hover = {
     display: isHover ? "flex" : "none",
   };
- 
+
   const filterActive = {
     display: filterBtnClicked ? "flex" : "none",
   };
@@ -41,7 +41,7 @@ export default function Filter({ onFilter }) {
               <li onClick={() => onFilter("nameAsc")}>Name : A to Z</li>
               <li onClick={() => onFilter("nameDesc")}>Name : Z to A</li>
               <li onClick={() => onFilter("priceAsc")}>Price: Low to High</li>
-              <li onClick={()=>  onFilter("priceDesc")}>Price: High to Low</li>
+              <li onClick={() => onFilter("priceDesc")}>Price: High to Low</li>
             </ul>
           </div>
 
