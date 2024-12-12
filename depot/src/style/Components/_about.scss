@@ -1,0 +1,124 @@
+.about{
+    display: flex;
+    flex-direction: column;
+    gap: 7rem;
+    .imgBanner{
+        position: relative;
+        left: -4rem;
+        height: 40vh;
+        width: 100vw;
+    }
+
+    .aboutAccordion{
+        display: flex;
+        gap: 2rem;
+        width: 100%;
+
+        .img{
+            width: 40%;
+            height: fit-content;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .data{
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            .tabs{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                input{
+                    width: calc((100% - 4rem) / 3);
+                    background-color: transparent;
+                    border: 2px solid $grey-bg;
+                    height: 4rem;
+                    cursor: pointer;
+                    color: $black-colour;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    letter-spacing: .1rem;
+
+                    &.active{
+                        background-color: $black-colour;
+                        color: white;
+                        border: none;
+                    }
+
+                }
+            }
+
+            .para{
+                width: 100%;
+                p{
+                    color: $grey-text-colour;
+                }
+            }
+        }
+
+
+
+    }
+}
+
+@media (max-width:850px) {
+    .about{
+
+        .aboutAccordion{
+            flex-direction: column;
+        width: 100%;
+
+        .img{
+            width: 100%;
+        }
+
+        .data{
+            width: 100%;
+        }
+    }
+}
+}
+@media (max-width:480px) {
+    .about{
+
+        .imgBanner{
+            left: -2rem;
+            height: 20vh;
+        }
+        .aboutAccordion{
+            flex-direction: column;
+        width: 100%;
+
+        .img{
+            width: 100%;
+        }
+
+        .data{
+            width: 100%;
+            .tabs{
+                flex-direction: column;
+                gap: 0rem;
+                width: 100%;
+
+                input{
+                    width: 100%;
+                }
+            }
+
+            .para{
+                p{
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
+}

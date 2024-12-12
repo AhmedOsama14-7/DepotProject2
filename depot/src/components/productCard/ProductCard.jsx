@@ -2,13 +2,16 @@ import React, { useContext, useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import QuickLook from "../quickLook/QuickLook";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import CategoryContext from "../../context/CategoryContext";
 import { FilterPrice } from "../../scripts/filter";
 import { useMutation, useQueryClient } from "react-query";
 import { AxiosConfig } from "../../axios/axiosConfig";
 import { Toaster, toast } from "react-hot-toast";
 import {accountDetails, cart} from "../../api/api"
+import { useNewProductContext } from "../../context/newProductContext";
+import { useOnSaleContext } from "../../context/onSaleContext";
+
 
 export default function ProductCard({
   name,
@@ -17,11 +20,12 @@ export default function ProductCard({
   salePrec,
   img,
   onclick,
-  rating,
   slug,
   category,
   isNew,
   product,
+  rating
+ 
 }) {
   const handleInnerButtonClick = (e) => {
     e.stopPropagation();
@@ -30,7 +34,6 @@ export default function ProductCard({
   const [id, setId] = useState(localStorage.getItem("id"));
   const [jwt, setJwt] = useState(localStorage.getItem("jwt"));
   const queryClient = useQueryClient();
-
   const addToCart = useMutation({
     mutationKey: ["cart"],
     mutationFn: async () =>    
@@ -143,10 +146,14 @@ export default function ProductCard({
       SetCategoryMatch(true);
     }
   }
+  const {isNewProductPage} = useNewProductContext()
+  const {isOnSale} = useOnSaleContext()
 
   useEffect(() => {
     handleCategory();
-  }, [handleCategoryChange]);
+    
+  
+}, [categorySelected]);
 
   return (
     <>
@@ -168,7 +175,7 @@ export default function ProductCard({
           },
         }}
       ></Toaster>
-      <div className={`productCard ${CategoryMatch ? "" : "notActive"}`}>
+      <div className={`productCard ${isNewProductPage ? isNew ? "" : "notActive" : isOnSale ? sale ? "" : "notActive" : CategoryMatch ? ""  : "notActive"}`}>
           <div className="img">
         <NavLink to={`/shop/singleProduct/${slug}`}>
             <img src={img} alt={slug}></img>

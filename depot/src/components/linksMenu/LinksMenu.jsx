@@ -14,7 +14,7 @@ export default function LinksMenu() {
         </li>
 
         <li>
-          <NavLink to={"/"}>About Us</NavLink>
+          <NavLink to={"/AboutUs"}>About Us</NavLink>
         </li>
 
         <li>

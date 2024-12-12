@@ -15,12 +15,13 @@ import {
   sortByRating,
   FilterPrice,
 } from "../../scripts/filter";
+import { useNewProductContext } from "../../context/newProductContext";
 
 export default function ProductsContainer({ routes }) {
   const [active, SetActive] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const { data, isFetching } = getProducts();
+  const { data, isLoading } = getProducts();
   const [sortedProducts, setSortedProducts] = useState(data?.data?.data);
 
   const handleCardClick = (product) => {
@@ -68,7 +69,7 @@ export default function ProductsContainer({ routes }) {
     setSortedProducts(sortedProducts);
   };
 
-  if (isFetching) return <Loader></Loader>;
+  if (isLoading) return <Loader></Loader>;
   return (
     <>
       <ShopRoutesContainer notActive={routes}></ShopRoutesContainer>

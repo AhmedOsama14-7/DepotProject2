@@ -16,7 +16,7 @@ export default function Footer() {
           list3={"online stores"}
           list4={"Terms & conditions"}
           link1={"/"}
-          link2={"/"}
+          link2={"/AboutUs"}
           link3={"/"}
           link4={"/"}
         ></FooterLinksList>
@@ -28,8 +28,8 @@ export default function Footer() {
           list2={"your cart"}
           link1={"/shop/wishList"}
           link2={"/cart"}
-          link3={"/"}
-          link4={"/"}
+          link3={"/shop/newProducts"}
+          link4={"/shop/onSale"}
         ></FooterLinksList>
         <FooterLinksList
           header={"social media"}
@@ -49,7 +49,7 @@ export default function Footer() {
           list3={"order tracking"}
           list4={"Help & support"}
           link1={"/account"}
-          link2={"/"}
+          link2={"/Checkout"}
           link3={"/"}
           link4={"/"}
         ></FooterLinksList>

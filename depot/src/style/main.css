@@ -3587,6 +3587,106 @@ body {
     left: -2rem;
   }
 }
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+}
+.about .imgBanner {
+  position: relative;
+  left: -4rem;
+  height: 40vh;
+  width: 100vw;
+}
+.about .aboutAccordion {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+.about .aboutAccordion .img {
+  width: 40%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.about .aboutAccordion .img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.about .aboutAccordion .data {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.about .aboutAccordion .data .tabs {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.about .aboutAccordion .data .tabs input {
+  width: calc((100% - 4rem) / 3);
+  background-color: transparent;
+  border: 2px solid #f7f6f6;
+  height: 4rem;
+  cursor: pointer;
+  color: #080808;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+}
+.about .aboutAccordion .data .tabs input.active {
+  background-color: #080808;
+  color: white;
+  border: none;
+}
+.about .aboutAccordion .data .para {
+  width: 100%;
+}
+.about .aboutAccordion .data .para p {
+  color: #929292;
+}
+
+@media (max-width: 850px) {
+  .about .aboutAccordion {
+    flex-direction: column;
+    width: 100%;
+  }
+  .about .aboutAccordion .img {
+    width: 100%;
+  }
+  .about .aboutAccordion .data {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .about .imgBanner {
+    left: -2rem;
+    height: 20vh;
+  }
+  .about .aboutAccordion {
+    flex-direction: column;
+    width: 100%;
+  }
+  .about .aboutAccordion .img {
+    width: 100%;
+  }
+  .about .aboutAccordion .data {
+    width: 100%;
+  }
+  .about .aboutAccordion .data .tabs {
+    flex-direction: column;
+    gap: 0rem;
+    width: 100%;
+  }
+  .about .aboutAccordion .data .tabs input {
+    width: 100%;
+  }
+  .about .aboutAccordion .data .para p {
+    font-size: 1.5rem;
+  }
+}
 .loader {
   width: 105vw;
   height: 100vh;
