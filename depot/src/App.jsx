@@ -17,6 +17,7 @@ import {
   useNewProductContext,
 } from "./context/newProductContext";
 import { OnSaleProductsContext } from "./context/onSaleContext";
+import ScrollArrow from "./components/scrollArrow/ScrollArrow";
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -32,6 +33,7 @@ function App() {
         <OnSaleProductsContext>
           <CategoryProvider>
             <QueryClientProvider client={queryClient}>
+              <ScrollArrow></ScrollArrow>
               <RouterProvider router={route}></RouterProvider>
             </QueryClientProvider>
           </CategoryProvider>

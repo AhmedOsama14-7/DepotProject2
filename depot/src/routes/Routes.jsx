@@ -12,6 +12,7 @@ import Cart from "../pages/cart/Cart";
 import CheckOut from "../pages/checkout/CheckOut";
 import { useNewProductContext } from "../context/newProductContext";
 import About from "../pages/about/About";
+import NotFound from "../pages/notFound/NotFound";
 
  
     export const route = createBrowserRouter([
@@ -45,6 +46,7 @@ import About from "../pages/about/About";
         { path: "/cart", element: <Cart /> },
         { path: "/Checkout", element: <CheckOut /> },
         { path: "/AboutUs", element: <About /> },
+        { path: "*", element: <NotFound></NotFound> },
       ],
     },
   ]);

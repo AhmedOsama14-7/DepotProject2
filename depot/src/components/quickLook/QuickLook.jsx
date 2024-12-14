@@ -180,7 +180,6 @@ export default function QuickLook({ active, SetActive, product }) {
               </div>
             </div>
             <div className="body">
-              <div className="stars">stars</div>
               <p className="desc">{product.description}</p>
 
               <div className="buttons">

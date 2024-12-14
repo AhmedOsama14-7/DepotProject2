@@ -15,13 +15,14 @@ import {
   sortByRating,
   FilterPrice,
 } from "../../scripts/filter";
-import { useNewProductContext } from "../../context/newProductContext";
 
 export default function ProductsContainer({ routes }) {
+  const limit = 8;
+  const [page, setPage] = useState(1);
   const [active, SetActive] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const { data, isLoading } = getProducts();
+  const { data, isLoading } = getProducts(page, limit);
   const [sortedProducts, setSortedProducts] = useState(data?.data?.data);
 
   const handleCardClick = (product) => {
@@ -68,7 +69,9 @@ export default function ProductsContainer({ routes }) {
     }
     setSortedProducts(sortedProducts);
   };
-
+  useEffect(() => {
+    console.log(page);
+  });
   if (isLoading) return <Loader></Loader>;
   return (
     <>
@@ -120,6 +123,23 @@ export default function ProductsContainer({ routes }) {
           ></QuickLook>
         )}
       </section>
+      <div className="pagination">
+        <div className="buttons">
+
+        <button onClick={() => setPage(page - 1)} disabled={(page === 1)}>
+          Prev
+        </button>
+        <button
+          onClick={() => setPage(page + 1)}
+          disabled={
+            page === Math.ceil(data?.data?.meta?.pagination?.total / limit)
+          }
+        >
+          Next
+        </button>
+            </div>
+        <p>current page :  {page}</p>
+      </div>
     </>
   );
 }

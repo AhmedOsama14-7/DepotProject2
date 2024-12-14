@@ -1,11 +1,10 @@
 import { useQuery } from "react-query";
 import { AxiosConfig } from "../axios/axiosConfig";
-import { useMutation , useQueryClient } from "react-query";
-import { toast } from "react-hot-toast";
-export const getProducts = () => {
+
+export const getProducts = (page, limit) => {
   return useQuery({
-    queryKey: ["products"],
-    queryFn: () => AxiosConfig("products?populate=*"),
+    queryKey: ["products" , page],
+    queryFn: () => AxiosConfig(`products?populate=*&pagination[pageSize]=${limit}&pagination[page]=${page}`),
   });
 };
 export const getSingleproduct = (slug) => {
@@ -21,10 +20,10 @@ export const getSponsors = () => {
     queryFn: () => AxiosConfig(`sponsors?populate=*`),
   });
 };
-export const getRelatedProducts = (category) => {
+export const getRelatedProducts = (category , page , limit) => {
   return useQuery({
     queryKey: ["relatedProducts"],
-    queryFn: () => AxiosConfig(`categories/${category}/?populate=*`),
+    queryFn: () => AxiosConfig(`categories/${category}/?populate=*&pagination[pageSize]=${limit}&pagination[page]=${page}`),
   });
 };
 

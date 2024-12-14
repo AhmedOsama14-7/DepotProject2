@@ -211,7 +211,6 @@ export default function SingleProductContent({ product }) {
               </div>
             </div>
             <div className="body">
-              <div className="stars">stars</div>
               <p className="desc">{product.data.description}</p>
               <div className="categories">
                 <h6>Categories : </h6>

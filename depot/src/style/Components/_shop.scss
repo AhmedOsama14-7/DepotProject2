@@ -1,6 +1,6 @@
 .routesContainer {
   background-color: $grey-bg;
-  width: 105vw;
+  width: 100vw;
   position: relative;
   left: -4rem;
   height: 5rem;
@@ -11,7 +11,38 @@
     }
   }
 }
+.pagination{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 3rem;
+  gap: 1.5rem;
 
+  p{
+    font-size: 1.25rem;
+    color: $grey-text-colour;
+    letter-spacing: .1rem;
+    font-weight: 500;
+  }
+
+  .buttons{
+    display: flex;
+
+    button{
+      width: 3.5rem;
+      height: 2rem;
+      cursor: pointer;
+      background-color: white;
+      color: $black-colour;
+      border: 1px solid $black-colour;
+
+      
+    }
+    button:nth-child(1){
+      border-right: none;
+    }
+  }
+
+}
 .filterBar {
   width: 100%;
   display: flex;

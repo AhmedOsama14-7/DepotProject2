@@ -4,6 +4,7 @@ import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 
 import { IoIosArrowUp } from "react-icons/io";
+import ScrollArrow from "../scrollArrow/ScrollArrow";
 export default function Layout() {
   return (
     <Fragment>
@@ -11,9 +12,6 @@ export default function Layout() {
       <main>
         <Outlet></Outlet>
 
-        <div className="topArrow">
-          <IoIosArrowUp />
-        </div>
       </main>
       <Footer></Footer>
     </Fragment>

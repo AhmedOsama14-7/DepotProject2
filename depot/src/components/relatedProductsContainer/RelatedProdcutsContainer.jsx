@@ -7,7 +7,9 @@ export default function RelatedProdcutsContainer({ product }) {
   const [selectedCategory, setSelectedCategory] = useState(
     product?.data?.categories[0]?.documentId
   );
-  const { data, isLoading } = getRelatedProducts(selectedCategory);
+  const [page , setPage] = useState(1)
+  const limit = 4
+  const { data, isLoading } = getRelatedProducts(selectedCategory , page , limit);
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [active, SetActive] = useState(false);
@@ -48,6 +50,7 @@ export default function RelatedProdcutsContainer({ product }) {
           ></QuickLook>
         )}
       </div>
+     
     </div>
   );
 }

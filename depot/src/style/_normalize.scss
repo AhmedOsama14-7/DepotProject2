@@ -24,9 +24,13 @@ ul,
 li {
   list-style: none;
 }
-
-.topArrow {
-  background-color: $black-colour;
+.topArrowDiv{
+  position: fixed;
+  right: 1rem;
+  z-index: 100;
+  bottom: 3rem;
+  .topArrow {
+    background-color: $black-colour;
   width: 2.5rem;
   height: 2.5rem;
   color: white;
@@ -34,8 +38,6 @@ li {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  position: absolute;
-  right: -3rem;
-  bottom: 5rem;
-  z-index: 4;
+
+}
 }
