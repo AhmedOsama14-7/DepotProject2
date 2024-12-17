@@ -34,6 +34,23 @@ export const accountDetails = (id) => {
   });
 };
 
+export const admin = () => {
+  return useQuery({
+    queryKey:["admins"],
+    queryFn: () => AxiosConfig(`admins?populate=*`, {
+      headers: {
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsImlhdCI6MTczNDI4MDM3NCwiZXhwIjoxNzM2ODcyMzc0fQ.goQNW3szLxI6_aG8kgZQbzAnyQYDAUE1YmqFc21PZHk`,
+        "Content-Type": "application/json",
+      },
+    })
+  })
+}
+export const users = (limit , page) => {
+  return useQuery({
+    queryKey:["admins"],
+    queryFn:()=>AxiosConfig(`users?populate=*&pagination[pageSize]=${limit}&pagination[page]=${page}`)
+  })
+}
 export const wishList = (id) => {
   return useQuery({
     queryKey: ["wishList"],

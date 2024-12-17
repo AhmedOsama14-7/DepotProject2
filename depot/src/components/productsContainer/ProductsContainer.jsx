@@ -17,7 +17,7 @@ import {
 } from "../../scripts/filter";
 
 export default function ProductsContainer({ routes }) {
-  const limit = 8;
+  const [limit , setLimit] = useState(12);
   const [page, setPage] = useState(1);
   const [active, SetActive] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -68,9 +68,10 @@ export default function ProductsContainer({ routes }) {
         sortedProducts = data?.data?.data;
     }
     setSortedProducts(sortedProducts);
+    
   };
   useEffect(() => {
-    console.log(page);
+    
   });
   if (isLoading) return <Loader></Loader>;
   return (

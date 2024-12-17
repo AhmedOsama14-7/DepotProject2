@@ -1,0 +1,25 @@
+{
+    "navBar":{
+        "home" : "home",
+        "shop" : "shop",
+        "about" : "About us",
+        "contact" : "contact us",
+        "cart" : "cart",
+        "logIn" : "login"
+    },
+
+    "homePage":{
+        "message":"Successful brands get into the mind slowly. A blurb in a magazine. A mention in a newspaper.",
+        "Welcome" : "Welcome"
+    },
+
+    "shop":{
+        "all":"all",
+        "accessories":"accessories",
+        "decorations":"decorations",
+        "hardwoords":"hardwoords",
+        "fancies":"fancies",
+        "filter":"filter"
+        
+    }
+}

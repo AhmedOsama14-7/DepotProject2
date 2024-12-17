@@ -13,6 +13,10 @@ import CheckOut from "../pages/checkout/CheckOut";
 import { useNewProductContext } from "../context/newProductContext";
 import About from "../pages/about/About";
 import NotFound from "../pages/notFound/NotFound";
+import AdminDashboard from "../pages/adminDashboard/AdminDashboard";
+import AdminDashboardLogin from "../pages/adminDashboardLogin/AdminDashboardLogin";
+import UsersDashboard from "../components/usersDashboard/UsersDashboard";
+import ProductsDashboard from "../components/productsDashboard/ProductsDashboard";
 
  
     export const route = createBrowserRouter([
@@ -46,6 +50,14 @@ import NotFound from "../pages/notFound/NotFound";
         { path: "/cart", element: <Cart /> },
         { path: "/Checkout", element: <CheckOut /> },
         { path: "/AboutUs", element: <About /> },
+        { path: "/admin-dashboard-login", element: <AdminDashboardLogin />  },
+        { path: "/admin-dashboard", element: <AdminDashboard /> , children :[
+          {index:true, element: <UsersDashboard />},
+          {path:"/admin-dashboard/admins" , element: <UsersDashboard />},
+          {path:"/admin-dashboard/products" , element: <ProductsDashboard />},
+          {path:"/admin-dashboard/newProducts" , element: <UsersDashboard />},
+          {path:"/admin-dashboard/orders" , element: <UsersDashboard />},
+        ]},
         { path: "*", element: <NotFound></NotFound> },
       ],
     },

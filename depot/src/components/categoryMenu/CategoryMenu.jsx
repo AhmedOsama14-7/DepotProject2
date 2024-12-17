@@ -13,6 +13,7 @@ export default function CategoryMenu() {
 
   function pcCategoryBtnActive(ref) {
     SetActiveCat(ref);
+    
   }
   const { handleCategoryChange } = useContext(CategoryContext);
   useEffect(() => {

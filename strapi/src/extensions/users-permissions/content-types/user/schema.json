@@ -103,6 +103,12 @@
       "relation": "manyToMany",
       "target": "api::order.order",
       "mappedBy": "users_permissions_users"
+    },
+    "admins": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::admin.admin",
+      "mappedBy": "users_permissions_users"
     }
   }
 }

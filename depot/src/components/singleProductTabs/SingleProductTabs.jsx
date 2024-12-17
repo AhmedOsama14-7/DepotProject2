@@ -11,8 +11,6 @@ export default function SingleProductTabs({ product }) {
         return <AdditionalInformation product={product} />;
       case 2:
         return <Description product={product} />;
-      case 3:
-        return <Comments product={product} />;
       default:
         return null;
     }
@@ -32,12 +30,6 @@ export default function SingleProductTabs({ product }) {
           className={active == 2 ? "active" : ""}
           onClick={() => SetActive(2)}
           value="Description"
-        />
-        <input
-          type="button"
-          className={active == 3 ? "active" : ""}
-          onClick={() => SetActive(3)}
-          value="Comments"
         />
       </div>
 

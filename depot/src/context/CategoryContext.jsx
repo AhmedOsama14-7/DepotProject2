@@ -1,4 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
+import { relatedProducts } from "../scripts/filter";
+import { getRelatedProducts } from "../api/api";
 
 const CategoryContext = createContext();
 export const CategoryProvider = ({ children }) => {
@@ -12,7 +14,7 @@ export const CategoryProvider = ({ children }) => {
 
   return (
     <CategoryContext.Provider
-      value={{ categorySelected, handleCategoryChange }}
+      value={{ categorySelected , handleCategoryChange  }}
     >
       {children}
     </CategoryContext.Provider>
