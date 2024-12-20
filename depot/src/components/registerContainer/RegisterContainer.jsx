@@ -33,6 +33,7 @@ export default function RegisterContainer() {
       localStorage.setItem("jwt", data?.data?.jwt);
       localStorage.setItem("name", data?.data?.user?.username);
       localStorage.setItem("email", data?.data?.user?.email);
+      localStorage.setItem("id", data?.data?.user?.id);
       
       navigate("/");
     },

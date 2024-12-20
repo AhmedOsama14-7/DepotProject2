@@ -10,13 +10,17 @@ import Account from "../pages/account/Account";
 import WishList from "../pages/wishList/WishList";
 import Cart from "../pages/cart/Cart";
 import CheckOut from "../pages/checkout/CheckOut";
-import { useNewProductContext } from "../context/newProductContext";
 import About from "../pages/about/About";
 import NotFound from "../pages/notFound/NotFound";
 import AdminDashboard from "../pages/adminDashboard/AdminDashboard";
-import AdminDashboardLogin from "../pages/adminDashboardLogin/AdminDashboardLogin";
 import UsersDashboard from "../components/usersDashboard/UsersDashboard";
 import ProductsDashboard from "../components/productsDashboard/ProductsDashboard";
+import ProductDashboardAdd from "../components/productDashboardAdd/ProductDashboardAdd";
+import OrdersDashBoard from "../components/ordersDashboard/OrdersDashBoard";
+import NewProductsDashboard from "../components/newProductsDashboard/NewProductsDashboard";
+import UserAdminDashboard from "../components/user-adminDashboard/User-AdminDashboard";
+import ProductDashboardEdit from "../components/productDashboardEdit/ProductDashboardEdit";
+
 
  
     export const route = createBrowserRouter([
@@ -50,13 +54,15 @@ import ProductsDashboard from "../components/productsDashboard/ProductsDashboard
         { path: "/cart", element: <Cart /> },
         { path: "/Checkout", element: <CheckOut /> },
         { path: "/AboutUs", element: <About /> },
-        { path: "/admin-dashboard-login", element: <AdminDashboardLogin />  },
         { path: "/admin-dashboard", element: <AdminDashboard /> , children :[
           {index:true, element: <UsersDashboard />},
-          {path:"/admin-dashboard/admins" , element: <UsersDashboard />},
-          {path:"/admin-dashboard/products" , element: <ProductsDashboard />},
-          {path:"/admin-dashboard/newProducts" , element: <UsersDashboard />},
-          {path:"/admin-dashboard/orders" , element: <UsersDashboard />},
+          {path:"/admin-dashboard/admins" , element: <UserAdminDashboard />},
+          {path:"/admin-dashboard/products" , element: <ProductsDashboard /> , children:[
+          ]},
+          {path:"/admin-dashboard/products/addProduct" , element:<ProductDashboardAdd />},
+          {path:"/admin-dashboard/products/editProduct/:id" , element:<ProductDashboardEdit />},
+          {path:"/admin-dashboard/newProducts" , element: <NewProductsDashboard />},
+          {path:"/admin-dashboard/orders" , element: <OrdersDashBoard />},
         ]},
         { path: "*", element: <NotFound></NotFound> },
       ],

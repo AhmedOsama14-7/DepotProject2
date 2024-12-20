@@ -3804,10 +3804,65 @@ body {
   gap: 3rem;
   margin-top: 4rem;
 }
-.dashboardPage .dashboard .container .usersDashboard, .dashboardPage .dashboard .container .productsDashboard {
+.dashboardPage .dashboard .container .productDashboardAdd, .dashboardPage .dashboard .container .ProductDashboardEdit {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dashboardPage .dashboard .container .productDashboardAdd .innerWindow, .dashboardPage .dashboard .container .ProductDashboardEdit .innerWindow {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  padding-inline: 2rem;
+}
+.dashboardPage .dashboard .container .productDashboardAdd .innerWindow form, .dashboardPage .dashboard .container .ProductDashboardEdit .innerWindow form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  padding-inline: 2rem;
+}
+.dashboardPage .dashboard .container .productDashboardAdd .innerWindow form .input, .dashboardPage .dashboard .container .ProductDashboardEdit .innerWindow form .input {
+  width: calc((100% - 4rem) / 2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.dashboardPage .dashboard .container .productDashboardAdd .innerWindow form .input.btn, .dashboardPage .dashboard .container .ProductDashboardEdit .innerWindow form .input.btn {
+  justify-content: flex-end;
+}
+.dashboardPage .dashboard .container .productDashboardAdd .innerWindow form .input label, .dashboardPage .dashboard .container .ProductDashboardEdit .innerWindow form .input label {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  color: #080808;
+}
+.dashboardPage .dashboard .container .productDashboardAdd .innerWindow form .input input, .dashboardPage .dashboard .container .ProductDashboardEdit .innerWindow form .input input {
+  width: 100%;
+  height: 3rem;
+  outline: none;
+  padding-left: 1rem;
+  padding-block: 0.5rem;
+  font-size: 1.25rem;
+  color: #080808;
+}
+.dashboardPage .dashboard .container .productDashboardAdd .innerWindow form .input select, .dashboardPage .dashboard .container .ProductDashboardEdit .innerWindow form .input select {
+  height: 3rem;
+}
+.dashboardPage .dashboard .container .productDashboardAdd .innerWindow form .input button, .dashboardPage .dashboard .container .ProductDashboardEdit .innerWindow form .input button {
+  background: #080808;
+  color: white;
+  text-align: center;
+  padding-block: 0.5rem;
+}
+.dashboardPage .dashboard .container .usersDashboard, .dashboardPage .dashboard .container .productsDashboard, .dashboardPage .dashboard .container .ordersDashboard, .dashboardPage .dashboard .container .newProductsDashboard, .dashboardPage .dashboard .container .user-AdminDashboard {
   width: 100%;
 }
-.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit {
+.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit, .dashboardPage .dashboard .container .ordersDashboard .ProductDashboardEdit, .dashboardPage .dashboard .container .newProductsDashboard .ProductDashboardEdit, .dashboardPage .dashboard .container .user-AdminDashboard .ProductDashboardEdit {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -3822,16 +3877,16 @@ body {
   display: none;
   z-index: 100;
 }
-.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit.active, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit.active {
+.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit.active, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit.active, .dashboardPage .dashboard .container .ordersDashboard .ProductDashboardEdit.active, .dashboardPage .dashboard .container .newProductsDashboard .ProductDashboardEdit.active, .dashboardPage .dashboard .container .user-AdminDashboard .ProductDashboardEdit.active {
   display: flex;
 }
-.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit svg, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit svg {
+.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit svg, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit svg, .dashboardPage .dashboard .container .ordersDashboard .ProductDashboardEdit svg, .dashboardPage .dashboard .container .newProductsDashboard .ProductDashboardEdit svg, .dashboardPage .dashboard .container .user-AdminDashboard .ProductDashboardEdit svg {
   position: absolute;
   right: 2rem;
   cursor: pointer;
   top: 1rem;
 }
-.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit .innerWindow, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit .innerWindow {
+.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit .innerWindow, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit .innerWindow, .dashboardPage .dashboard .container .ordersDashboard .ProductDashboardEdit .innerWindow, .dashboardPage .dashboard .container .newProductsDashboard .ProductDashboardEdit .innerWindow, .dashboardPage .dashboard .container .user-AdminDashboard .ProductDashboardEdit .innerWindow {
   width: 100%;
   height: 108%;
   background-color: white;
@@ -3841,20 +3896,20 @@ body {
   flex-wrap: wrap;
   gap: 2rem;
 }
-.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit .innerWindow .input, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit .innerWindow .input {
+.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit .innerWindow .input, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit .innerWindow .input, .dashboardPage .dashboard .container .ordersDashboard .ProductDashboardEdit .innerWindow .input, .dashboardPage .dashboard .container .newProductsDashboard .ProductDashboardEdit .innerWindow .input, .dashboardPage .dashboard .container .user-AdminDashboard .ProductDashboardEdit .innerWindow .input {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: calc((100% - 4rem) / 3);
 }
-.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit .innerWindow .input label, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit .innerWindow .input label {
+.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit .innerWindow .input label, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit .innerWindow .input label, .dashboardPage .dashboard .container .ordersDashboard .ProductDashboardEdit .innerWindow .input label, .dashboardPage .dashboard .container .newProductsDashboard .ProductDashboardEdit .innerWindow .input label, .dashboardPage .dashboard .container .user-AdminDashboard .ProductDashboardEdit .innerWindow .input label {
   font-size: 1.5rem;
   text-transform: capitalize;
   font-weight: 500;
   letter-spacing: 0.1rem;
   color: #080808;
 }
-.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit .innerWindow .input input, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit .innerWindow .input input {
+.dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit .innerWindow .input input, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit .innerWindow .input input, .dashboardPage .dashboard .container .ordersDashboard .ProductDashboardEdit .innerWindow .input input, .dashboardPage .dashboard .container .newProductsDashboard .ProductDashboardEdit .innerWindow .input input, .dashboardPage .dashboard .container .user-AdminDashboard .ProductDashboardEdit .innerWindow .input input {
   width: 100%;
   height: 3rem;
   outline: none;
@@ -3863,7 +3918,7 @@ body {
   font-size: 1.25rem;
   color: #080808;
 }
-.dashboardPage .dashboard .container .usersDashboard table, .dashboardPage .dashboard .container .productsDashboard table {
+.dashboardPage .dashboard .container .usersDashboard table, .dashboardPage .dashboard .container .productsDashboard table, .dashboardPage .dashboard .container .ordersDashboard table, .dashboardPage .dashboard .container .newProductsDashboard table, .dashboardPage .dashboard .container .user-AdminDashboard table {
   width: 100%;
   border: 1px solid #080808;
   padding-inline: 1rem;
@@ -3871,34 +3926,48 @@ body {
   border-collapse: collapse;
   border-spacing: 1rem;
 }
-.dashboardPage .dashboard .container .usersDashboard table thead, .dashboardPage .dashboard .container .productsDashboard table thead {
+.dashboardPage .dashboard .container .usersDashboard table thead, .dashboardPage .dashboard .container .productsDashboard table thead, .dashboardPage .dashboard .container .ordersDashboard table thead, .dashboardPage .dashboard .container .newProductsDashboard table thead, .dashboardPage .dashboard .container .user-AdminDashboard table thead {
   margin-bottom: 2rem;
 }
-.dashboardPage .dashboard .container .usersDashboard table thead tr th, .dashboardPage .dashboard .container .productsDashboard table thead tr th {
+.dashboardPage .dashboard .container .usersDashboard table thead tr th, .dashboardPage .dashboard .container .productsDashboard table thead tr th, .dashboardPage .dashboard .container .ordersDashboard table thead tr th, .dashboardPage .dashboard .container .newProductsDashboard table thead tr th, .dashboardPage .dashboard .container .user-AdminDashboard table thead tr th {
   border-right: 1px solid #080808;
   padding-block: 1rem;
 }
-.dashboardPage .dashboard .container .usersDashboard table tbody, .dashboardPage .dashboard .container .productsDashboard table tbody {
+.dashboardPage .dashboard .container .usersDashboard table tbody, .dashboardPage .dashboard .container .productsDashboard table tbody, .dashboardPage .dashboard .container .ordersDashboard table tbody, .dashboardPage .dashboard .container .newProductsDashboard table tbody, .dashboardPage .dashboard .container .user-AdminDashboard table tbody {
   margin-block: 0.5rem;
 }
-.dashboardPage .dashboard .container .usersDashboard table tbody tr, .dashboardPage .dashboard .container .productsDashboard table tbody tr {
+.dashboardPage .dashboard .container .usersDashboard table tbody tr, .dashboardPage .dashboard .container .productsDashboard table tbody tr, .dashboardPage .dashboard .container .ordersDashboard table tbody tr, .dashboardPage .dashboard .container .newProductsDashboard table tbody tr, .dashboardPage .dashboard .container .user-AdminDashboard table tbody tr {
   border-top: 1px solid #080808;
 }
-.dashboardPage .dashboard .container .usersDashboard table tbody tr td, .dashboardPage .dashboard .container .productsDashboard table tbody tr td {
+.dashboardPage .dashboard .container .usersDashboard table tbody tr td, .dashboardPage .dashboard .container .productsDashboard table tbody tr td, .dashboardPage .dashboard .container .ordersDashboard table tbody tr td, .dashboardPage .dashboard .container .newProductsDashboard table tbody tr td, .dashboardPage .dashboard .container .user-AdminDashboard table tbody tr td {
   text-align: center;
   border-right: 1px solid #080808;
   padding-block: 1rem;
 }
-.dashboardPage .dashboard .container .usersDashboard table tbody tr td svg, .dashboardPage .dashboard .container .productsDashboard table tbody tr td svg {
-  cursor: pointer;
-}
-.dashboardPage .dashboard .container .usersDashboard table tbody tr td:last-child, .dashboardPage .dashboard .container .productsDashboard table tbody tr td:last-child {
+.dashboardPage .dashboard .container .usersDashboard table tbody tr td.products, .dashboardPage .dashboard .container .usersDashboard table tbody tr td.address, .dashboardPage .dashboard .container .productsDashboard table tbody tr td.products, .dashboardPage .dashboard .container .productsDashboard table tbody tr td.address, .dashboardPage .dashboard .container .ordersDashboard table tbody tr td.products, .dashboardPage .dashboard .container .ordersDashboard table tbody tr td.address, .dashboardPage .dashboard .container .newProductsDashboard table tbody tr td.products, .dashboardPage .dashboard .container .newProductsDashboard table tbody tr td.address, .dashboardPage .dashboard .container .user-AdminDashboard table tbody tr td.products, .dashboardPage .dashboard .container .user-AdminDashboard table tbody tr td.address {
   display: flex;
-  gap: 1.5rem;
-  justify-content: center;
+  flex-direction: column;
+}
+.dashboardPage .dashboard .container .usersDashboard table tbody tr td.products td, .dashboardPage .dashboard .container .usersDashboard table tbody tr td.address td, .dashboardPage .dashboard .container .productsDashboard table tbody tr td.products td, .dashboardPage .dashboard .container .productsDashboard table tbody tr td.address td, .dashboardPage .dashboard .container .ordersDashboard table tbody tr td.products td, .dashboardPage .dashboard .container .ordersDashboard table tbody tr td.address td, .dashboardPage .dashboard .container .newProductsDashboard table tbody tr td.products td, .dashboardPage .dashboard .container .newProductsDashboard table tbody tr td.address td, .dashboardPage .dashboard .container .user-AdminDashboard table tbody tr td.products td, .dashboardPage .dashboard .container .user-AdminDashboard table tbody tr td.address td {
+  width: 100%;
+  border: none;
+}
+.dashboardPage .dashboard .container .usersDashboard table tbody tr td:last-child, .dashboardPage .dashboard .container .productsDashboard table tbody tr td:last-child, .dashboardPage .dashboard .container .ordersDashboard table tbody tr td:last-child, .dashboardPage .dashboard .container .newProductsDashboard table tbody tr td:last-child, .dashboardPage .dashboard .container .user-AdminDashboard table tbody tr td:last-child {
+  height: 100%;
+}
+.dashboardPage .dashboard .container .usersDashboard table tbody tr td:last-child svg, .dashboardPage .dashboard .container .productsDashboard table tbody tr td:last-child svg, .dashboardPage .dashboard .container .ordersDashboard table tbody tr td:last-child svg, .dashboardPage .dashboard .container .newProductsDashboard table tbody tr td:last-child svg, .dashboardPage .dashboard .container .user-AdminDashboard table tbody tr td:last-child svg {
+  cursor: pointer;
+  height: 100%;
+  align-self: center;
 }
 
 @media (max-width: 850px) {
+  .dashboardPage .dashboard .container .productDashboardAdd .innerWindow form .input {
+    width: 100%;
+  }
+  .dashboardPage .dashboard .container .ordersDashboard table tbody td:last-child, .dashboardPage .dashboard .container .ordersDashboard table tbody th:last-child, .dashboardPage .dashboard .container .ordersDashboard table thead td:last-child, .dashboardPage .dashboard .container .ordersDashboard table thead th:last-child {
+    display: none;
+  }
   .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit {
     height: 100vh;
     bottom: 0;
@@ -3940,20 +4009,31 @@ body {
   .dashboardPage .dashboard .dashboardNav ul li a {
     font-size: 1.25rem;
   }
-  .dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit .innerWindow, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit .innerWindow {
-    flex-direction: column;
-  }
-  .dashboardPage .dashboard .container .usersDashboard .ProductDashboardEdit .innerWindow .input, .dashboardPage .dashboard .container .productsDashboard .ProductDashboardEdit .innerWindow .input {
-    width: 100%;
-  }
-  .dashboardPage .dashboard .container .usersDashboard table tbody tr td, .dashboardPage .dashboard .container .usersDashboard table thead tr td, .dashboardPage .dashboard .container .productsDashboard table tbody tr td, .dashboardPage .dashboard .container .productsDashboard table thead tr td {
+  .dashboardPage .dashboard .container .ordersDashboard table tbody td, .dashboardPage .dashboard .container .ordersDashboard table tbody th, .dashboardPage .dashboard .container .ordersDashboard table thead td, .dashboardPage .dashboard .container .ordersDashboard table thead th {
     padding-block: 2rem;
     font-size: 1.25rem;
   }
-  .dashboardPage .dashboard .container .usersDashboard table tbody tr td:nth-child(1), .dashboardPage .dashboard .container .usersDashboard table thead tr td:nth-child(1), .dashboardPage .dashboard .container .productsDashboard table tbody tr td:nth-child(1), .dashboardPage .dashboard .container .productsDashboard table thead tr td:nth-child(1) {
+  .dashboardPage .dashboard .container .ordersDashboard table tbody td:nth-child(2), .dashboardPage .dashboard .container .ordersDashboard table tbody th:nth-child(2), .dashboardPage .dashboard .container .ordersDashboard table thead td:nth-child(2), .dashboardPage .dashboard .container .ordersDashboard table thead th:nth-child(2) {
     display: none;
   }
-  .dashboardPage .dashboard .container .usersDashboard table tbody tr th:nth-child(1), .dashboardPage .dashboard .container .usersDashboard table thead tr th:nth-child(1), .dashboardPage .dashboard .container .productsDashboard table tbody tr th:nth-child(1), .dashboardPage .dashboard .container .productsDashboard table thead tr th:nth-child(1) {
+  .dashboardPage .dashboard .container .user-AdminDashboard table tbody tr td, .dashboardPage .dashboard .container .user-AdminDashboard table thead tr td {
+    padding-block: 2rem;
+    font-size: 1.25rem;
+  }
+  .dashboardPage .dashboard .container .user-AdminDashboard .usersDashboard .ProductDashboardEdit .innerWindow, .dashboardPage .dashboard .container .user-AdminDashboard .productsDashboard .ProductDashboardEdit .innerWindow {
+    flex-direction: column;
+  }
+  .dashboardPage .dashboard .container .user-AdminDashboard .usersDashboard .ProductDashboardEdit .innerWindow .input, .dashboardPage .dashboard .container .user-AdminDashboard .productsDashboard .ProductDashboardEdit .innerWindow .input {
+    width: 100%;
+  }
+  .dashboardPage .dashboard .container .user-AdminDashboard .usersDashboard table tbody tr td, .dashboardPage .dashboard .container .user-AdminDashboard .usersDashboard table thead tr td, .dashboardPage .dashboard .container .user-AdminDashboard .productsDashboard table tbody tr td, .dashboardPage .dashboard .container .user-AdminDashboard .productsDashboard table thead tr td {
+    padding-block: 2rem;
+    font-size: 1.25rem;
+  }
+  .dashboardPage .dashboard .container .user-AdminDashboard .usersDashboard table tbody tr td:nth-child(1), .dashboardPage .dashboard .container .user-AdminDashboard .usersDashboard table thead tr td:nth-child(1), .dashboardPage .dashboard .container .user-AdminDashboard .productsDashboard table tbody tr td:nth-child(1), .dashboardPage .dashboard .container .user-AdminDashboard .productsDashboard table thead tr td:nth-child(1) {
+    display: none;
+  }
+  .dashboardPage .dashboard .container .user-AdminDashboard .usersDashboard table tbody tr th:nth-child(1), .dashboardPage .dashboard .container .user-AdminDashboard .usersDashboard table thead tr th:nth-child(1), .dashboardPage .dashboard .container .user-AdminDashboard .productsDashboard table tbody tr th:nth-child(1), .dashboardPage .dashboard .container .user-AdminDashboard .productsDashboard table thead tr th:nth-child(1) {
     display: none;
   }
 }

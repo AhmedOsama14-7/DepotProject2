@@ -7,6 +7,7 @@ import { useMutation, useQueryClient } from 'react-query';
 import { AxiosConfig } from '../../axios/axiosConfig';
 import Loader from '../loader/Loader';
 import ProductDashboardEdit from '../productDashboardEdit/ProductDashboardEdit';
+import { NavLink } from 'react-router-dom';
 export default function ProductsDashboard() {
   const limit = 8
   const [ page , setPage] = useState(1)
@@ -91,7 +92,10 @@ export default function ProductsDashboard() {
                     {product.salePrecentage ? product.salePrecentage + "%": "none"}
                   </td>
                   <td>
-                    <MdEdit onClick={()=> openEditWindow(product)}/>
+                    <NavLink to={`/admin-dashboard/products/editProduct/${product.documentId}`}>
+
+                    <MdEdit />
+                    </NavLink>
                     <MdDelete onClick={() => deleteClick(product.documentId)}></MdDelete>
                   </td>
                 </tr>

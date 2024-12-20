@@ -5,16 +5,12 @@ import { route } from "./routes/Routes";
 
 import "./style/main.css";
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
   QueryClient,
   QueryClientProvider,
 } from "react-query";
 import { CategoryProvider } from "./context/CategoryContext";
 import {
   NewProductsContext,
-  useNewProductContext,
 } from "./context/newProductContext";
 import { OnSaleProductsContext } from "./context/onSaleContext";
 import ScrollArrow from "./components/scrollArrow/ScrollArrow";
@@ -26,6 +22,10 @@ function App() {
       },
     },
   });
+
+// Add / Edit in products DashBoard
+// Order page
+
 
   return (
     <>

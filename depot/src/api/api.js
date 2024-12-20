@@ -13,6 +13,12 @@ export const getSingleproduct = (slug) => {
     queryFn: () => AxiosConfig(`products/${slug}?populate=*`),
   });
 };
+export const getCategories = (slug) => {
+  return useQuery({
+    queryKey: ["products "],
+    queryFn: () => AxiosConfig(`categories?populate=*`),
+  });
+};
 
 export const getSponsors = () => {
   return useQuery({
@@ -34,17 +40,24 @@ export const accountDetails = (id) => {
   });
 };
 
-export const admin = () => {
-  return useQuery({
-    queryKey:["admins"],
-    queryFn: () => AxiosConfig(`admins?populate=*`, {
-      headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsImlhdCI6MTczNDI4MDM3NCwiZXhwIjoxNzM2ODcyMzc0fQ.goQNW3szLxI6_aG8kgZQbzAnyQYDAUE1YmqFc21PZHk`,
-        "Content-Type": "application/json",
-      },
+  export const admin = () => {
+    return useQuery({
+      queryKey:["admins"],
+      queryFn: () => AxiosConfig(`admins?populate=*`, {
+        headers: {
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsImlhdCI6MTczNDI4MDM3NCwiZXhwIjoxNzM2ODcyMzc0fQ.goQNW3szLxI6_aG8kgZQbzAnyQYDAUE1YmqFc21PZHk`,
+          "Content-Type": "application/json",
+        },
+      })
     })
-  })
-}
+  }
+  export const getAdmins = (page , limit) => {
+    return useQuery({
+      queryKey:["admins"],
+      queryFn: () => AxiosConfig(`admins?populate=*&pagination[pageSize]=${limit}&pagination[page]=${page}`, {
+      })
+    })
+  }
 export const users = (limit , page) => {
   return useQuery({
     queryKey:["admins"],
@@ -63,3 +76,16 @@ export const cart = (id) => {
     queryKey: ["cart" , "wish-list"],
     queryFn: () => AxiosConfig(`users/${id}?populate=*`)},
 )}
+
+export const getOrders = (page , limit) => {
+  return useQuery({
+    queryKey: ["orders"],
+    queryFn: () => AxiosConfig(`orders?populate=*&pagination[pageSize]=${limit}&pagination[page]=${page}`)
+  })
+}
+export const getNewProducts = (page , limit) => {
+  return useQuery({
+    queryKey: ["newProducts"],
+    queryFn: () => AxiosConfig(`new-products?populate=*&pagination[pageSize]=${limit}&pagination[page]=${page}`)
+  })
+}

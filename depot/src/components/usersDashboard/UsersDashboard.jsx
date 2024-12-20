@@ -67,6 +67,7 @@ export default function UsersDashboard() {
  
   useEffect(() => {
     setUsersArr(data?.data);
+    console.log(data?.data);
   });
 
   if(isLoading) return <Loader></Loader>
@@ -101,7 +102,7 @@ export default function UsersDashboard() {
           </tr>
         </thead>
         <tbody>
-          {usersArr &&
+           { usersArr.length > 0 &&
             usersArr?.map((user) => {
               return (
                 <tr>
@@ -114,7 +115,7 @@ export default function UsersDashboard() {
                   </td>
                 </tr>
               );
-            })}
+            }) }
         </tbody>
       </table>
     </div>
